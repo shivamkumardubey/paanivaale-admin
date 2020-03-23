@@ -1,0 +1,522 @@
+<div *ngIf="render; else elseBlock">
+        <form [formGroup]="checkoutForm" (ngSubmit)="insert(checkoutForm.value)">
+                <nb-card>
+                  <nb-card-header>Add product</nb-card-header>
+                  <nb-card-body>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="delivery_time" class="label">Product id</label>
+                              <input
+                                type="text"
+                                required
+                                nbInput
+                                fullWidth
+                                id="prod_id"
+                                formControlName="prod_id"
+                                                          />
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="product_type" class="label">product type</label>
+                                <input
+                                  type="text"
+                                  required
+                                  nbInput
+                                  fullWidth
+                                  id="product_type"
+                                  formControlName="product_type"
+                                                            />
+                              </div>
+                            </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="username" class="label">Product Name</label>
+                          <input
+                            type="text"
+                            required
+                            nbInput
+                            fullWidth
+                            id="product_name"
+                            formControlName="product_name"
+                        
+                                                      />
+              
+                          
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="brand_name" class="label">Brand name</label>
+                          <input
+                            type="text"
+                            nbInput
+                            required
+                            fullWidth
+                            id="brand_name"
+                            formControlName="brand_name"
+                                                      />
+        
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="vendor_id" class="label">Vendor id</label>
+                            <input
+                              type="text"
+                              
+                              nbInput
+                              fullWidth
+                              id="vendor_id"
+                              formControlName="vendor_id"
+                                                        />
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="dist_id" class="label">Distributor Id</label>
+                            <input
+                              type="text"
+                              
+                              nbInput
+                              fullWidth
+                              id="dist_id"
+                              formControlName="dist_id"
+                                                        />
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="orignal_price" class="label">orignal price</label>
+                          <input
+                            type="text"
+                            required
+                            nbInput
+                            fullWidth
+                            id="orignal_price"
+                            formControlName="orignal_price"
+                            
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="current_offers" class="label">Current offers</label>
+                            <input
+                              type="text"
+                              required
+                              nbInput
+                              fullWidth
+                              id="current_offers"
+                              formControlName="current_offers"
+                                                        />
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="discount_price" class="label">discount price</label>
+                                <input
+                                  type="text"
+                                  required
+                                  nbInput
+                                  fullWidth
+                                  id="discount_price"
+                                  formControlName="discount_price"
+                                                            />
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="discount" class="label">Promo code</label>
+                                <input
+                                  type="text"
+                                  required
+                                  nbInput
+                                  fullWidth
+                                  id="discount"
+                                  formControlName="promo_code"
+                                  
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="row">
+                              <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="Location" class="label">Location</label>
+                                    <input
+                                      type="text"
+                                      required
+                                      nbInput
+                                      fullWidth
+                                      id="location"
+                                      formControlName="location"
+                                                                />
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="delivery_time" class="label">delivery time</label>
+                                    <input
+                                      type="time"
+                                      required
+                                      nbInput
+                                      fullWidth
+                                      id="delivery_time"
+                                      formControlName="delivery_time"
+                                                                />
+                                  </div>
+                                </div>
+                               
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="discount" class="label">product details</label>
+                                    <textarea rows="5" nbInput fullWidth shape="round"
+                             
+                                   formControlName="product_details"></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                    <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="business" class="label">short description</label>
+                                <textarea rows="5" nbInput fullWidth shape="round"
+                                
+                                   formControlName="short_desc"></textarea>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="pincode" class="label">long description</label>
+                                <textarea rows="5" nbInput fullWidth shape="round"
+                             
+                                   formControlName="long_desc"></textarea>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <img [src]="imageurl" width="100px" height="100px" alt="Not Found" />
+                              <div class="form-group">
+                                <label for="image" class="label">Image</label>
+                                <input
+                                  type="file"
+                                  fullWidth
+                                  nbInput
+                                  formControlName="image"
+                                  (change)="imageupload($event)"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <img [src]="imageurl1" width="100px" height="100px" alt="Not Found" />
+                              <div class="form-group">
+                                <label for="image" class="label">Image</label>
+                                <input
+                                  type="file"
+                                  fullWidth
+                                  nbInput
+                                  formControlName="image1"
+                                  (change)="imageupload1($event)"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <img [src]="imageurl2" width="100px" height="100px" alt="Not Found" />
+                              <div class="form-group">
+                                <label for="image" class="label">Image</label>
+                                <input
+                                  type="file"
+                                  fullWidth
+                                  nbInput
+                                  formControlName="image2"
+                                  (change)="imageupload2($event)"
+                                />
+                              </div>
+                            </div>
+                           
+                             
+                               
+                                
+                          </div>
+                    <button type="submit" [disabled]="!checkoutForm.valid" nbButton>
+                      Submit
+                    </button>
+                  </nb-card-body>
+                </nb-card>
+              </form>
+              
+</div>
+
+<ng-template #elseBlock>
+       
+              <form [formGroup]="checkoutForm" (ngSubmit)="edit(checkoutForm.value)">
+                    <nb-card>
+                            <nb-card-header>Edit product</nb-card-header>
+                            <nb-card-body>
+                              <div class="row">
+                                  <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label for="delivery_time" class="label">Product id</label>
+                                        <input
+                                          type="text"
+                                          required
+                                          nbInput
+                                          fullWidth
+                                          id="prod_id"
+                                          [(ngModel)]="userdata.prod_id"
+                                          formControlName="prod_id"
+                                          readonly                    />
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                          <label for="product_type" class="label">product type</label>
+                                          <input
+                                            type="text"
+                                            required
+                                            nbInput
+                                            fullWidth
+                                            id="product_type"
+                                            formControlName="product_type"
+                                            [(ngModel)]="userdata.product_type"
+                                                                      />
+                                        </div>
+                                      </div>
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="username" class="label">Product Name</label>
+                                    <input
+                                      type="text"
+                                      required
+                                      nbInput
+                                      fullWidth
+                                      id="product_name"
+                                      formControlName="product_name"
+                                      [(ngModel)]="userdata.product_name"
+                                  
+                                                                />
+                        
+                                    
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="brand_name" class="label">Brand name</label>
+                                    <input
+                                      type="text"
+                                      nbInput
+                                      required
+                                      fullWidth
+                                      id="brand_name"
+                                      formControlName="brand_name"
+                                      [(ngModel)]="userdata.brand_name"
+                                                                />
+                  
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <label for="vendor_id" class="label">vendor_id</label>
+                                      <input
+                                        type="text"
+                                        nbInput
+                                      
+                                        fullWidth
+                                        id="vendor_id"
+                                        formControlName="vendor_id"
+                                        [(ngModel)]="userdata.vendor_id"
+                                         readonly                         />
+                    
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <label for="dist_id" class="label">Distributor Id</label>
+                                      <input
+                                        type="text"
+                                        nbInput
+                                      
+                                        fullWidth
+                                        id="dist_id"
+                                        formControlName="dist_id"
+                                        [(ngModel)]="userdata.dist_id"
+                                             readonly                     />
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                              
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="orignal_price" class="label">orignal price</label>
+                                    <input
+                                      type="text"
+                                      required
+                                      nbInput
+                                      fullWidth
+                                      id="orignal_price"
+                                      formControlName="orignal_price"
+                                      [(ngModel)]="userdata.orignal_price"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <label for="current_offers" class="label">Current offers</label>
+                                      <input
+                                        type="text"
+                                        nbInput
+                                        required
+                                        fullWidth
+                                        id="current_offers"
+                                        formControlName="current_offers"
+                                        [(ngModel)]="userdata.current_offers"
+                                                                  />
+                    
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                      <div class="col-sm-6">
+                                        <div class="form-group">
+                                          <label for="discount_price" class="label">discount price</label>
+                                          <input
+                                            type="text"
+                                            required
+                                            nbInput
+                                            fullWidth
+                                            id="discount_price"
+                                            formControlName="discount_price"
+                                            [(ngModel)]="userdata.discount_price"
+                                                                      />
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-group">
+                                          <label for="discount" class="label">Promo code</label>
+                                          <input
+                                            type="text"
+                                            required
+                                            nbInput
+                                            fullWidth
+                                            id="discount"
+                                            formControlName="promo_code"
+                                            [(ngModel)]="userdata.promo_code"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                              <label for="location" class="label">Location</label>
+                                              <input
+                                                type="text"
+                                                nbInput
+                                                required
+                                                fullWidth
+                                                id="location"
+                                                formControlName="location"
+                                                [(ngModel)]="userdata.location"
+                                                                          />
+                            
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6">
+                                            <div class="form-group">
+                                              <label for="delivery_time" class="label">delivery time</label>
+                                              <input
+                                                type="time"
+                                                required
+                                                nbInput
+                                                fullWidth
+                                                id="delivery_time"
+                                                formControlName="delivery_time"
+                                                [(ngModel)]="userdata.delivery_time"
+                                                                          />
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6">
+                                            <div class="form-group">
+                                              <label for="discount" class="label">product details</label>
+                                              <textarea rows="5" nbInput fullWidth shape="round"
+                                       
+                                             formControlName="product_details"  [(ngModel)]="userdata.product_details"></textarea>
+                                            </div>
+                                          </div>
+                                        </div>
+                              <div class="row">
+                                      <div class="col-sm-6">
+                                        <div class="form-group">
+                                          <label for="business" class="label">short description</label>
+                                          <textarea rows="5" nbInput fullWidth shape="round"
+                                          [(ngModel)]="userdata.short_desc"
+                                             formControlName="short_desc"></textarea>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-group">
+                                          <label for="pincode" class="label">long description</label>
+                                          <textarea rows="5" nbInput fullWidth shape="round"
+                                          [(ngModel)]="userdata.long_desc"
+                                             formControlName="long_desc"></textarea>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <img [src]="imageurl" width="100px" height="100px" alt="Not Found" />
+                                        <div class="form-group">
+                                          <label for="image" class="label">Image</label>
+                                          <input
+                                            type="file"
+                                            fullWidth
+                                            nbInput
+                                            formControlName="image"
+                                            (change)="imageupload($event)"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <img [src]="imageurl1" width="100px" height="100px" alt="Not Found" />
+                                        <div class="form-group">
+                                          <label for="image" class="label">Image</label>
+                                          <input
+                                            type="file"
+                                            fullWidth
+                                            nbInput
+                                            formControlName="image1"
+                                            (change)="imageupload1($event)"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <img [src]="imageurl2" width="100px" height="100px" alt="Not Found" />
+                                        <div class="form-group">
+                                          <label for="image" class="label">Image</label>
+                                          <input
+                                            type="file"
+                                            fullWidth
+                                            nbInput
+                                            formControlName="image2"
+                                            (change)="imageupload2($event)"
+                                          />
+                                        </div>
+                                      </div>
+                                        
+                                        
+                                          
+                                    </div>
+                              <button type="submit" [disabled]="!checkoutForm.valid" nbButton>
+                                Submit
+                              </button>
+                            </nb-card-body>
+                          </nb-card>
+                  </form>
+                                
+</ng-template>

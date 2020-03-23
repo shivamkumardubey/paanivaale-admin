@@ -1,0 +1,50 @@
+<div>
+  <form [formGroup]="checkoutForm" (ngSubmit)="send(checkoutForm.value)">
+    <nb-card>
+      <nb-card-header>Mail</nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="username" class="label">Subject</label>
+              <input
+                type="text"
+                required
+                nbInput
+                fullWidth
+                id="subject"
+                formControlName="subject"
+              />
+
+              <span
+                *ngIf="
+                  checkoutForm.get('subject').hasError('required') &&
+                  submit == true
+                "
+              >
+                first name is Required!
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="pincode" class="label">Message</label>
+              <textarea
+                rows="7"
+                nbInput
+                fullWidth
+                shape="round"
+                formControlName="body"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <button type="submit" [disabled]="!checkoutForm.valid" nbButton>
+          Send
+        </button>
+      </nb-card-body>
+    </nb-card>
+  </form>
+</div>

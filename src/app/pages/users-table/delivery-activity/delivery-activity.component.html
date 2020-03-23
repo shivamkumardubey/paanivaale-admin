@@ -1,0 +1,159 @@
+<nb-card>
+  <nb-card-header>
+    Vendor Details<button
+      nbButton
+      status="warning"
+      size="small"
+      style="float: right;"
+      (click)="blockuser()"
+    >
+      Block
+    </button>
+    <button
+      nbButton
+      status="success"
+      size="small"
+      style="float: right;margin-right: 5px;"
+      (click)="email()"
+    >
+      Email
+    </button>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ delivery.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ delivery.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <!-- <div class="col-md-6">
+        <div>Business:{{ delivery.business_name }}</div>
+      </div> -->
+      <!-- <div class="col-md-6">
+        <div>Last Name:{{</div>
+      </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ delivery.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ delivery.mobile }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Parement Adddress:{{ delivery.per_address }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Temporary Address:{{ delivery.temp_address }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Status:{{ delivery.status }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Area:{{ deliveryarea.area }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Pincode:{{ deliveryarea.pin_code }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>
+          image:<img
+            [src]="imageurl"
+            width="100px"
+            height="100px"
+            alt="Not Found"
+          />
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+<nb-card>
+  <nb-card-header>
+    Orders
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="Orders"
+      [source]="ordersource"
+      (userRowSelect)="userRowSelectorder($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Event Orders
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="Orders"
+      [source]="evetnsource"
+      (userRowSelect)="userRowSelectevent($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    New bottle orders
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="Orders"
+      [source]="newbottlesource"
+      (userRowSelect)="userRowSelectnewbottle($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+<nb-card>
+  <nb-card-header>
+    Vendor Review
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source"> </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Pending complains
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="solvesettings"
+      [source]="pendingsource"
+      (userRowSelect)="userRowSelectpending($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Solve complains
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="solvesettings"
+      [source]="solvesource"
+      (userRowSelect)="userRowSelectsolve($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,58 @@
+<nb-card>
+  <nb-card-header>
+    Vendor Details
+    <button
+      nbButton
+      status="warning"
+      size="small"
+      style="float: right;"
+      (click)="blockuser()"
+    >
+      Undelete
+    </button>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ delivery.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ delivery.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <!-- <div class="col-md-6">
+              <div>Business:{{ delivery.business_name }}</div>
+            </div> -->
+      <!-- <div class="col-md-6">
+              <div>Last Name:{{</div>
+            </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ delivery.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ delivery.mobile }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Parement Adddress:{{ delivery.per_address }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Temporary Address:{{ delivery.temp_address }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Status:{{ delivery.status }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Area:{{ deliveryarea.area }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Pincode:{{ deliveryarea.pin_code }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

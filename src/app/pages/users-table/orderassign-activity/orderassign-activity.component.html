@@ -1,0 +1,250 @@
+<nb-card>
+  <nb-card-header>
+    <span> Orders Details</span>
+  </nb-card-header>
+
+  <nb-card-body>
+    <table width="800">
+      <tr>
+        <th>Product name</th>
+        <th>Product type</th>
+        <th>Quantity</th>
+        <th>Price single</th>
+        <th>Price</th>
+      </tr>
+      <tr *ngFor="let data of orderdata.data.rows">
+        <td>{{ data.product_name }}</td>
+        <td>{{ data.product_type }}</td>
+        <td>{{ data.quantity }}</td>
+        <td>{{ data.orignal_price }}</td>
+        <td>{{ data.orignal_price * data.quantity }}</td>
+      </tr>
+      <tr>
+        <td colspan="4"><b>Total</b></td>
+        <td>
+          <b>{{ orderdata.Total_price }}</b>
+        </td>
+      </tr>
+    </table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    <span>Delivery Address</span>
+  </nb-card-header>
+
+  <nb-card-body>
+    <p>{{ orderdata.data.rows[0].delivered_address }}</p>
+  </nb-card-body></nb-card
+>
+
+<nb-card *ngIf="Vendor">
+  <nb-card-header>
+    Vendor Details
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ delivery.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ delivery.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <!-- <div class="col-md-6">
+                <div>Business:{{ delivery.business_name }}</div>
+              </div> -->
+      <!-- <div class="col-md-6">
+                <div>Last Name:{{</div>
+              </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ delivery.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ delivery.mobile }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Parement Adddress:{{ delivery.per_address }}</div>
+      </div>
+
+      <div class="col-md-6">
+        <div>Status:{{ delivery.status }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Area:{{ delivery.area }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="Distributar">
+  <nb-card-header>
+    Distributor Details
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ vendordata.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ vendordata.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Business:{{ vendordata.business_name }}</div>
+      </div>
+      <!-- <div class="col-md-6">
+                <div>Last Name:{{</div>
+              </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ vendordata.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ vendordata.mobile }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Area:{{ vendordata.area }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Address:{{ vendordata.address }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Status:{{ vendordata.status }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="user">
+  <nb-card-header>
+    <span> User Details</span>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ userdata.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ userdata.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ userdata.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ userdata.mobile }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>City:{{ userdata.city }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Pincode:{{ userdata.pincode }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="Vendor">
+  <nb-card-header>
+    Assign Vendor Details
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ deliveryassign.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ deliveryassign.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <!-- <div class="col-md-6">
+                      <div>Business:{{ deliveryassign.business_name }}</div>
+                    </div> -->
+      <!-- <div class="col-md-6">
+                      <div>Last Name:{{</div>
+                    </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ deliveryassign.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ deliveryassign.mobile }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Parement Adddress:{{ deliveryassign.per_address }}</div>
+      </div>
+
+      <div class="col-md-6">
+        <div>Status:{{ deliveryassign.status }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Area:{{ deliveryassign.area }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="Distributar">
+  <nb-card-header>
+    Assign Distributor Details
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ vendordataassign.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ vendordataassign.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Business:{{ vendordataassign.business_name }}</div>
+      </div>
+      <!-- <div class="col-md-6">
+                      <div>Last Name:{{</div>
+                    </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ vendordataassign.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ vendordataassign.mobile }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Area:{{ vendordataassign.area }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Address:{{ vendordataassign.address }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Status:{{ vendordataassign.status }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

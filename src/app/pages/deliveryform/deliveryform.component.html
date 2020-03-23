@@ -1,0 +1,458 @@
+<div *ngIf="render; else elseBlock">
+        <form [formGroup]="checkoutForm" (ngSubmit)="insert(checkoutForm.value)">
+                <nb-card>
+                  <nb-card-header>Add Vendor</nb-card-header>
+                  <nb-card-body>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="lname" class="label">Vendor id</label>
+                              <input
+                                type="text"
+                                nbInput
+                                required
+                                fullWidth
+                                id="lname"
+                                formControlName="del_per_id"
+                                                          />
+                              <span
+                                *ngIf="
+                                  checkoutForm.get('del_per_id').hasError('required') && submit == true
+                                "
+                              >
+                                last sname is Required!
+                              </span>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="username" class="label">First Name</label>
+                          <input
+                            type="text"
+                            required
+                            nbInput
+                            fullWidth
+                            id="fname"
+                            formControlName="fname"
+                        
+                                                      />
+              
+                          <span
+                            *ngIf="
+                              checkoutForm.get('fname').hasError('required') && submit == true
+                            "
+                          >
+                            first name is Required!
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="lname" class="label">last name</label>
+                          <input
+                            type="text"
+                            nbInput
+                            required
+                            fullWidth
+                            id="lname"
+                            formControlName="lname"
+                                                      />
+                          <span
+                            *ngIf="
+                              checkoutForm.get('lname').hasError('required') && submit == true
+                            "
+                          >
+                            last sname is Required!
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="email" class="label">Email</label>
+                          <input
+                            type="email"
+                            required
+                            nbInput
+                            fullWidth
+                            id="email"
+                            formControlName="email"
+                                                      />
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="mobile" class="label">mobile</label>
+                          <input
+                            type="text"
+                            required
+                            nbInput
+                            fullWidth
+                            id="mobile"
+                            formControlName="mobile"
+                            minlength="10"
+                            maxlength="10"
+                          />
+                        </div>
+                        <span *ngIf="checkoutForm.get('mobile').hasError('minlength')">
+                          Enter valid mobile number
+                        </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="stock" class="label">Stock</label>
+                              <input
+                                type="text"
+                                required
+                                nbInput
+                                fullWidth
+                                id="stock"
+                                formControlName="stock"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="remark" class="label">Remark</label>
+                                <input
+                                  type="text"
+                                  required
+                                  nbInput
+                                  fullWidth
+                                  id="remark"
+                                  formControlName="remark"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="stock" class="label">Product</label>
+                                  <input
+                                    type="text"
+                                    nbInput
+                                    required
+                                    fullWidth
+                                    id="product"
+                                    formControlName="product"
+                                   
+                                  />
+                                 
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="remark" class="label">Price</label>
+                                    <input
+                                      type="text"
+                                      nbInput
+                                      required
+                                      fullWidth
+                                      id="price"
+                                      formControlName="price"
+                                     
+                                    />
+                                   
+                                  </div>
+                                </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="business" class="label"> permanent address</label>
+                                <textarea rows="5" nbInput fullWidth shape="round"
+                                
+                                   formControlName="per_address"></textarea>
+                              </div>
+                            </div>
+                          
+                           
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="pincode" class="label">Area</label>
+                                <textarea rows="5" nbInput fullWidth shape="round"
+                              
+                                   formControlName="area"></textarea>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="mobile" class="label">Pincode</label>
+                                <input
+                                  type="text"
+                                  required
+                                  nbInput
+                                  fullWidth
+                                  id="mobile"
+                                  formControlName="pin_code"
+                                 
+                                  minlength="6"
+                                  maxlength="6" 
+                                />
+                              </div>
+                              <span *ngIf="checkoutForm.get('mobile').hasError('minlength')">
+                                Enter valid mobile number
+                              </span>
+                            </div>
+                            <div class="col-sm-6">
+                                <img [src]="imageurl" width="100px" height="100px" alt="Not Found" />
+                                <div class="form-group">
+                                  <label for="image" class="label">Image</label>
+                                  <input
+                                    type="file"
+                                    fullWidth
+                                    nbInput
+                                    formControlName="image"
+                                    (change)="imageupload($event)"
+                                  />
+                                </div>
+                              </div>
+                           
+                          </div>
+                    <button type="submit" [disabled]="!checkoutForm.valid" nbButton>
+                      Submit
+                    </button>
+                  </nb-card-body>
+                </nb-card>
+              </form>
+              
+</div>
+
+<ng-template #elseBlock>
+       
+              <form [formGroup]="checkoutForm" (ngSubmit)="edit(checkoutForm.value)">
+                    <nb-card>
+                      <nb-card-header>Edit Vendor</nb-card-header>
+                      <nb-card-body>
+                          <div class="row">
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="username" class="label">Vendor id</label>
+                                  <input
+                                    type="text"
+                                    required
+                                    nbInput
+                                    fullWidth
+                                    id="fname"
+                                    formControlName="del_per_id"
+                                    placeholder="del_per_id"
+                                    [(ngModel)]="userdata.del_per_id"
+                                    readonly
+                                  />
+                      
+                                  <span
+                                    *ngIf="
+                                      checkoutForm.get('fname').hasError('required') && submit == true
+                                    "
+                                  >
+                                    first name is Required!
+                                  </span>
+                                </div>
+                              </div></div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="username" class="label">First Name</label>
+                              <input
+                                type="text"
+                                required
+                                nbInput
+                                fullWidth
+                                id="fname"
+                                formControlName="fname"
+                                placeholder="fname"
+                                [(ngModel)]="userdata.fname"
+                              />
+                  
+                              <span
+                                *ngIf="
+                                  checkoutForm.get('fname').hasError('required') && submit == true
+                                "
+                              >
+                                first name is Required!
+                              </span>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="lname" class="label">last name</label>
+                              <input
+                                type="text"
+                                nbInput
+                                required
+                                fullWidth
+                                id="lname"
+                                formControlName="lname"
+                                [(ngModel)]="userdata.lname"
+                              />
+                              <span
+                                *ngIf="
+                                  checkoutForm.get('lname').hasError('required') && submit == true
+                                "
+                              >
+                                last sname is Required!
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="email" class="label">Email</label>
+                              <input
+                                type="email"
+                                required
+                                nbInput
+                                fullWidth
+                                id="email"
+                                formControlName="email"
+                                [(ngModel)]="userdata.email"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="mobile" class="label">mobile</label>
+                              <input
+                                type="text"
+                                required
+                                nbInput
+                                fullWidth
+                                id="mobile"
+                                formControlName="mobile"
+                                [(ngModel)]="userdata.mobile"
+                                minlength="10"
+                                maxlength="10" 
+                              />
+                            </div>
+                            <span *ngIf="checkoutForm.get('mobile').hasError('minlength')">
+                              Enter valid mobile number
+                            </span>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="stock" class="label">Stock</label>
+                                  <input
+                                    type="text"
+                                    nbInput
+                                    required
+                                    fullWidth
+                                    id="stock"
+                                    formControlName="stock"
+                                    [(ngModel)]="userdata.stock"
+                                  />
+                                 
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="remark" class="label">Remark</label>
+                                    <input
+                                      type="text"
+                                      nbInput
+                                      required
+                                      fullWidth
+                                      id="remark"
+                                      formControlName="remark"
+                                      [(ngModel)]="userdata.remark"
+                                    />
+                                   
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <label for="stock" class="label">Product</label>
+                                      <input
+                                        type="text"
+                                        nbInput
+                                        required
+                                        fullWidth
+                                        id="product"
+                                        formControlName="product"
+                                        [(ngModel)]="userdata.product"
+                                      />
+                                     
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label for="remark" class="label">Price</label>
+                                        <input
+                                          type="text"
+                                          nbInput
+                                          required
+                                          fullWidth
+                                          id="price"
+                                          formControlName="price"
+                                          [(ngModel)]="userdata.price"
+                                        />
+                                       
+                                      </div>
+                                    </div>
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="business" class="label"> permanent address</label>
+                                    <textarea rows="5" nbInput fullWidth shape="round"
+                                    [(ngModel)]="userdata.per_address"
+                                       formControlName="per_address"></textarea>
+                                  </div>
+                                </div>
+                              
+                              </div>
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="pincode" class="label">Area</label>
+                                    <textarea rows="5" nbInput fullWidth shape="round"
+                                    [(ngModel)]="userareadata.area"
+                                       formControlName="area"></textarea>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="mobile" class="label">Pincode</label>
+                                    <input
+                                      type="text"
+                                      required
+                                      nbInput
+                                      fullWidth
+                                      id="mobile"
+                                      formControlName="pin_code"
+                                      [(ngModel)]="userareadata.pin_code"
+                                      minlength="6"
+                                      maxlength="6" 
+                                    />
+                                  </div>
+                                  <span *ngIf="checkoutForm.get('mobile').hasError('minlength')">
+                                    Enter valid mobile number
+                                  </span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img [src]="imageurl" width="100px" height="100px" alt="Not Found" />
+                                    <div class="form-group">
+                                      <label for="image" class="label">Image</label>
+                                      <input
+                                        type="file"
+                                        fullWidth
+                                        nbInput
+                                        formControlName="image"
+                                        (change)="imageupload($event)"
+                                      />
+                                    </div>
+                                  </div>
+                                
+                              </div>
+                        <button type="submit" [disabled]="!checkoutForm.valid" nbButton>
+                          Submit
+                        </button>
+                      </nb-card-body>
+                    </nb-card>
+                  </form>
+                                
+</ng-template>

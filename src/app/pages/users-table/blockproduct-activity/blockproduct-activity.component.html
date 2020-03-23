@@ -1,0 +1,51 @@
+<nb-card>
+  <nb-card-header>
+    Product Details<button
+      nbButton
+      status="warning"
+      size="small"
+      style="float: right;"
+      (click)="blockuser()"
+    >
+      UNBlock
+    </button>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Product Name:{{ prodcutdata.product_name }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Brand Name:{{ prodcutdata.brand_name }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Orignal Price:{{ prodcutdata.orignal_price }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Discount Price:{{ prodcutdata.discount_price }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Discount:{{ prodcutdata.discount }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Details:{{ prodcutdata.product_details }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Long desctiption:{{ prodcutdata.long_desc }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Short Desctiption:{{ prodcutdata.short_desc }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Status:{{ prodcutdata.status }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

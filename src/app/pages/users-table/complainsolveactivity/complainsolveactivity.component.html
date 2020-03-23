@@ -1,0 +1,159 @@
+<nb-card *ngIf="user">
+  <nb-card-header>
+    <span> User Details</span>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ userdata.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ userdata.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ userdata.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ userdata.mobile }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>City:{{ userdata.city }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Pincode:{{ userdata.pincode }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="Vendor">
+  <nb-card-header>
+    Vendor Details
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ delivery.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ delivery.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <!-- <div class="col-md-6">
+                        <div>Business:{{ delivery.business_name }}</div>
+                      </div> -->
+      <!-- <div class="col-md-6">
+                        <div>Last Name:{{</div>
+                      </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ delivery.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ delivery.mobile }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Parement Adddress:{{ delivery.per_address }}</div>
+      </div>
+
+      <div class="col-md-6">
+        <div>Status:{{ delivery.status }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Area:{{ delivery.area }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="Distributar">
+  <nb-card-header>
+    Distributor Details
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ vendordata.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ vendordata.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Business:{{ vendordata.business_name }}</div>
+      </div>
+      <!-- <div class="col-md-6">
+                        <div>Last Name:{{</div>
+                      </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ vendordata.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ vendordata.mobile }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Area:{{ vendordata.area }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Address:{{ vendordata.address }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Status:{{ vendordata.status }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Issue
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-2">
+        <label>User Issue:</label>
+      </div>
+      <div class="col-md-6">
+        <textarea
+          rows="5"
+          nbInput
+          fullWidth
+          shape="round"
+          readonly
+          [(ngModel)]="orderdata.data.rows[0].issue"
+        ></textarea>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-2">
+        <label>Answer:</label>
+      </div>
+      <div class="col-md-6">
+        <textarea
+          rows="5"
+          nbInput
+          fullWidth
+          shape="round"
+          readonly
+          [(ngModel)]="orderdata.data.rows[0].answer"
+        ></textarea>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

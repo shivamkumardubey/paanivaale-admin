@@ -1,0 +1,116 @@
+import { Component, OnInit } from "@angular/core";
+import { LocalDataSource } from "ng2-smart-table";
+import { Router } from "@angular/router";
+
+// import { SmartTableData } from "../../../@core/data/smart-table";
+import { UsersTableService } from "../../users-table.service";
+
+@Component({
+  selector: "ngx-complainsolve",
+  templateUrl: "./complainsolve.component.html",
+  styleUrls: ["./complainsolve.component.scss"]
+})
+export class ComplainsolveComponent {
+  // settings = {
+  //   actions: false,
+  //   mode: "external",
+  //   add: {
+  //     addButtonContent: '<i class="nb-plus"></i>',
+  //     createButtonContent: '<i class="nb-checkmark"></i>',
+  //     cancelButtonContent: '<i class="nb-close"></i>',
+  //     confirmCreate: true
+  //   },
+  //   edit: {
+  //     editButtonContent: '<i class="nb-edit"></i>',
+  //     saveButtonContent: '<i class="nb-checkmark"></i>',
+  //     cancelButtonContent: '<i class="nb-close"></i>',
+  //     confirmSave: true
+  //   },
+  //   delete: {
+  //     deleteButtonContent: '<i class="nb-trash"></i>',
+  //     confirmDelete: true
+  //   },
+  //   columns: {
+  //     id: {
+  //       title: "ID",
+  //       type: "number"
+  //     },
+  //     user_mobile: {
+  //       title: "User mobile",
+  //       type: "string"
+  //     },
+  //     complain_to: {
+  //       title: "Complain to",
+  //       type: "string"
+  //     },
+  //     issue: {
+  //       title: "Issue",
+  //       type: "string"
+  //     },
+  //     created_at: {
+  //       title: "Date",
+  //       type: "number"
+  //     }
+  //   }
+  // };
+
+  // source: LocalDataSource = new LocalDataSource();
+  showTable: boolean = true;
+  dataTable: any;
+  title = "Example of Angular 8 DataTable";
+  dtOptions: any;
+  tableShow = false;
+  dtUsers;
+  constructor(private service: UsersTableService, private router: Router) {}
+  arr: any = [];
+  select(event, data) {
+    console.log("allselect evetn", event.srcElement.checked, data);
+    if (event.srcElement.checked) {
+      this.arr.push(data);
+      console.log(this.arr.length, this.arr);
+    } else {
+      const index = this.arr.findIndex(order => order.user_id === data.user_id);
+      this.arr.splice(index, 1);
+      console.log("remove array", this.arr);
+    }
+  }
+  view(data) {
+    this.router.navigate(["/pages/users-tables/solve-activity", data.id]);
+  }
+  ngOnInit(): void {
+    this.service.getdata_solvedcomplain().subscribe(
+      res => {
+        this.tableShow = true;
+        this.dtUsers = res.data.rows;
+      },
+      error => {
+        console.log(error);
+        alert(error.error.message);
+      }
+    );
+
+    this.dtOptions = {
+      pagingType: "full_numbers",
+      pageLength: 10,
+      dom: "Bfrtip",
+      buttons: [
+        {
+          extend: "csv",
+          text: '<i class="fa fa-file-text-o"></i> Export As CSV',
+          title: "Countries",
+          className: "btn btn-info"
+        },
+        {
+          extend: "excel",
+          text: '<i class="fa fa-file-excel-o"></i> Export As Excel',
+          title: "Countries",
+          className: "btn btn-primary"
+        }
+      ],
+      select: true
+    };
+  }
+  // userRowSelect(event): void {
+  //   this.router.navigate(["/pages/users-tables/solve-activity", event.data.id]);
+  // }
+}

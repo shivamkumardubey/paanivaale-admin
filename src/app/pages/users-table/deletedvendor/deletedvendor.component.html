@@ -1,0 +1,84 @@
+<nb-card>
+  <nb-card-header>
+    Delete Vendors
+  </nb-card-header>
+
+  <nb-card-body>
+    <button
+      nbButton
+      status="danger"
+      size="small"
+      style="float: right;"
+      (click)="undelete()"
+    >
+      UnDelete ({{ arr.length }})
+    </button>
+    <div class="table-responsive margin-top-15" *ngIf="tableShow">
+      <table
+        datatable
+        #dataTable
+        [dtOptions]="dtOptions"
+        class="display"
+        style="width:100%"
+      >
+        <thead>
+          <tr>
+            <th></th>
+            <th>id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>E-mail</th>
+            <th>Mobile</th>
+            <th hidden>Pic</th>
+            <th hidden>Address</th>
+            <th hidden>Area</th>
+            <th hidden>Product</th>
+            <th hidden>Price</th>
+            <th hidden>Stock</th>
+            <th hidden>Remark</th>
+            <th hidden>Availability</th>
+            <th hidden>Verify</th>
+            <th hidden>Status</th>
+            <th hidden>Created at</th>
+            <th hidden>Update at</th>
+
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of dtUsers">
+            <td>
+              <input
+                type="checkbox"
+                data-md-icheck
+                (change)="select($event, t)"
+              />
+            </td>
+            <td>{{ t.del_per_id }}</td>
+            <td>{{ t.fname }}</td>
+            <td>{{ t.lname }}</td>
+            <td>{{ t.email }}</td>
+            <td>{{ t.mobile }}</td>
+            <td hidden>{{ t.pic }}</td>
+            <td hidden>{{ t.per_address }}</td>
+            <td hidden>{{ t.area }}</td>
+            <td hidden>{{ t.product }}</td>
+            <td hidden>{{ t.price }}</td>
+            <td hidden>{{ t.stock }}</td>
+            <td hidden>{{ t.remark }}</td>
+            <td hidden>{{ t.availability }}</td>
+            <td hidden>{{ t.verify }}</td>
+            <td hidden>{{ t.status }}</td>
+            <td hidden>{{ t.created_at }}</td>
+            <td hidden>{{ t.updated_at }}</td>
+            <td>
+              <button nbButton [size]="tiny" (click)="view(t)">
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </nb-card-body>
+</nb-card>

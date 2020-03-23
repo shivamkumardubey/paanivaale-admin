@@ -1,0 +1,151 @@
+<nb-card>
+  <nb-card-header>
+    Distributor Details
+
+    <button
+      nbButton
+      status="warning"
+      size="small"
+      style="float: right;"
+      (click)="blockuser()"
+    >
+      Block
+    </button>
+    <button
+      nbButton
+      status="success"
+      size="small"
+      style="float: right;margin-right: 5px;"
+      (click)="email()"
+    >
+      Email
+    </button>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ vendordata.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ vendordata.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Business:{{ vendordata.business_name }}</div>
+      </div>
+      <!-- <div class="col-md-6">
+        <div>Last Name:{{</div>
+      </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ vendordata.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ vendordata.mobile }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Area:{{ vendordata.area }}</div>
+      </div>
+      <div class="col-md-6">
+          <div>image:<img [src]="imageurl" width="100px" height="100px" alt="Not Found" /></div>
+        </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Address:{{ vendordata.address }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Status:{{ vendordata.status }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Orders
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="Orders"
+      [source]="ordersource"
+      (userRowSelect)="userRowSelectorder($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Event Orders
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="Orders"
+      [source]="evetnsource"
+      (userRowSelect)="userRowSelectevent($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    New bottle orders
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="Orders"
+      [source]="newbottlesource"
+      (userRowSelect)="userRowSelectnewbottle($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Distributor Reviews
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings3" [source]="source3">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Pending complains
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="solvesettings"
+      [source]="pendingsource"
+      (userRowSelect)="userRowSelectpending($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Solve complains
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="solvesettings"
+      [source]="solvesource"
+      (userRowSelect)="userRowSelectsolve($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,49 @@
+<nb-card>
+  <nb-card-header>
+    Distributor Details
+    <button
+      nbButton
+      status="warning"
+      size="small"
+      style="float: right;"
+      (click)="blockuser()"
+    >
+      UnBlock
+    </button>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ vendordata.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ vendordata.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Business:{{ vendordata.business_name }}</div>
+      </div>
+      <!-- <div class="col-md-6">
+              <div>Last Name:{{</div>
+            </div> -->
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ vendordata.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ vendordata.mobile }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Address:{{ vendordata.address }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Status:{{ vendordata.status }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

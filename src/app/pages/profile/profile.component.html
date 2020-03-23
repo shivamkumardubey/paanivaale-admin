@@ -1,0 +1,115 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+  <nb-card>
+    <nb-card-header>Admin Profile</nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="username" class="label">UserName</label>
+            <input
+              type="text"
+              required
+              nbInput
+              fullWidth
+              id="username"
+              formControlName="username"
+              placeholder="username"
+              [(ngModel)]="data.username"
+            />
+
+            <span
+              *ngIf="
+                checkoutForm.get('username').hasError('required') &&
+                submit == true
+              "
+            >
+              username is Required!
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="name" class="label">Name</label>
+            <input
+              type="text"
+              nbInput
+              required
+              fullWidth
+              id="name"
+              placeholder="Name"
+              formControlName="name"
+              [(ngModel)]="data.name"
+            />
+            <span
+              *ngIf="
+                checkoutForm.get('name').hasError('required') && submit == true
+              "
+            >
+              name is Required!
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="email" class="label">Email</label>
+            <input
+              type="email"
+              required
+              nbInput
+              fullWidth
+              id="email"
+              placeholder="Email"
+              formControlName="email_id"
+              [(ngModel)]="data.email_id"
+            />
+          </div>
+          <span
+            *ngIf="
+              checkoutForm.get('email_id').hasError('type') && submit == true
+            "
+          >
+            Enter valid Email
+          </span>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="mobile" class="label">mobile</label>
+            <input
+              type="text"
+              required
+              nbInput
+              fullWidth
+              id="mobile"
+              placeholder="mobile"
+              formControlName="mobile_no"
+              [(ngModel)]="data.mobile_no"
+              minlength="10"
+              maxlength="10"
+            />
+          </div>
+          <span *ngIf="checkoutForm.get('mobile_no').hasError('minlength')">
+            Enter valid mobile number
+          </span>
+        </div>
+        <div class="col-sm-6">
+          <img [src]="imageurl" width="100px" height="100px" />
+          <div class="form-group">
+            <label for="image" class="label">Image</label>
+            <input
+              type="file"
+              fullWidth
+              nbInput
+              formControlName="image"
+              (change)="imageupload($event)"
+            />
+          </div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!checkoutForm.valid" nbButton>
+        Submit
+      </button>
+    </nb-card-body>
+  </nb-card>
+</form>

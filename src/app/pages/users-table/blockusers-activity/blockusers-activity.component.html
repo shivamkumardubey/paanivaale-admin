@@ -1,0 +1,50 @@
+<nb-card>
+  <nb-card-header>
+    <span>User Details</span>
+    <button
+      nbButton
+      status="warning"
+      size="small"
+      style="float: right;"
+      (click)="blockuser()"
+    >
+      Unblock
+    </button>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>First Name:{{ userdata.fname }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Last Name:{{ userdata.lname }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>Email:{{ userdata.email }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Mobile:{{ userdata.mobile }}</div>
+      </div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">
+        <div>City:{{ userdata.city }}</div>
+      </div>
+      <div class="col-md-6">
+        <div>Pincode:{{ userdata.pincode }}</div>
+      </div>
+    </div>
+
+    <!-- <div class="row show-grid">
+      <div class="col-md-12 row ">
+        <div class="col-md-1">Address:</div>
+        <div *ngFor="let address of useraddress" class="col-md-2">
+          <p>{{ address.address }}</p>
+        </div>
+      </div>
+    </div> -->
+  </nb-card-body>
+</nb-card>
